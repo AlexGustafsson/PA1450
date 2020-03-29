@@ -65,6 +65,8 @@ class SMHI():
         # Parse the CSV data
         reader = csv.reader(skipped_file, delimiter=';')
         # Return a normalized list of the data
-        non_empty_rows = list(filter(lambda row: row[0] and row[1], reader))
+        non_empty_rows = [row for row in reader if row[0] and row[1]]
         normalized_rows = list(map(SMHI.normalize_row, non_empty_rows))
+        # Sort the normalized rows ascending by temperature
+        normalized_rows.sort(key=lambda entry: entry[0])
         return normalized_rows

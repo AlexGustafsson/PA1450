@@ -3,8 +3,9 @@ from argparse import FileType
 from statistics import mean
 from datetime import datetime
 
-from  application.visualizations import warming_stripes
 from application.institutes.smhi import SMHI
+from application.utilities.io import read_normalized_data
+from application.visualizations import warming_stripes
 
 def average_months(normalized_data, months):
     """Average the normalized data for the given number of months."""
@@ -47,13 +48,7 @@ def average_months(normalized_data, months):
 
 def visualize(options):
     """Visualize weather data."""
-    normalized_data = []
-    with open(options.input, 'r') as input_file:
-        reader = csv.reader(input_file, delimiter=',')
-        for row in reader:
-            date = datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S")
-            temperature = float(row[1])
-            normalized_data.append((date, temperature))
+    normalized_data = read_normalized_data(options.input)
 
     if options.months is not None:
         normalized_data = average_months(normalized_data, options.months)

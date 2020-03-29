@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 
-from application.commands import download, visualize
+from application.commands import download, visualize, serve
 
 def main():
     """Main method of the application."""
@@ -15,6 +15,7 @@ def main():
     # Add the parser for each specific command
     download.create_parser(subparsers)
     visualize.create_parser(subparsers)
+    serve.create_parser(subparsers)
 
     # Parse the arguments and execute the chosen command
     options = parser.parse_args()

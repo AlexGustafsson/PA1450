@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Portal</title>
+  <meta name="description" content="The main entrypoint for the Anansi platform"/>
+</head>
+<body>
+  <h1>Weather application API demo</h1>
+  <h2>Raw data</h2>
+  <h3>Normalized data currently in use</h3>
+  <p>The normalized data currently in use can be retrieved by the <a href="/data">/data</a> endpoint.</p>
+  <h4>Example</h4>
+  <object data="/data" style="width: 100%">
+  <embed src="/data"></embed>
+  Unable to retrieve the data.
+  </object>
+  <h2>Visualizations</h2>
+  <h3>Warming Stripes</h3>
+  <p>Warming Stripes display the temperature over a period of time as a stripe colored depending on the temperature.</p>
+  <p>For more information see <a href="https://en.wikipedia.org/wiki/Warming_stripes">https://en.wikipedia.org/wiki/Warming_stripes</a></p>
+  <p>The API can be used over at <a href="/visualization/warming-stripes">/visualization/warming-stripes</a>. There are two required parameters, <code>width</code> and <code>height</code> for controlling the size of the resulting visualization.</p>
+  <h4>Example</h4>
+  <img alt="Warming Stripes visualization" src="/visualization/warming-stripes?width=1024&height=320" />
+</body>
+</html>
