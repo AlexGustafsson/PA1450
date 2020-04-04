@@ -46,7 +46,7 @@ def serve(options):
             # Get the size parameters from the request
             width = int(request.args.get("width"))
             height = int(request.args.get("height"))
-        finally:
+        except (TypeError, ValueError):
             # Abort the request if the parameters were not given
             abort(400, "Missing or invalid parameters. Expected \"width\" and \"height\" to be set.")
 
